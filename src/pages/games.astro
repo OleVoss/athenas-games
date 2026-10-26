@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import GamePreview from "../components/GamePreview.astro";
+
+const matches = import.meta.glob("../games/*.md", { eager: true});
+const games = Object.values(matches);
+
+console.log(games);
+---
+
+<Layout>
+    <h1>
+        Games
+    </h1>
+
+    <div class="games-list">
+        {
+            games.map((game: any) => (
+                <GamePreview name={ game.frontmatter.name } tags={ game.frontmatter.tags } />
+            ))
+        }
+    </div>
+</Layout>
+
+<style>
+    .games-list {
+        display: flex;
+        gap: var(--size-4);
+    }
+</style>

@@ -1,0 +1,23 @@
+---
+interface Props {
+	text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<div> <p>{ text }</p> </div>
+
+<style>
+    div {
+        border-radius: var(--radius-round);
+        border: var(--border-size-2) solid var(--purple-4);
+        background-color: var(--purple-2);
+    }
+
+    p {
+        padding-right: var(--size-2);
+        padding-left: var(--size-2);
+        color: var(--purple-8);
+    }
+</style>
